@@ -1,0 +1,35 @@
+$backgroundColour: rgb(226, 226, 226);
+$textColour: rgb(41, 40, 40);
+$btnPrimary: rgb(5, 91, 148);
+
+@mixin flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: $backgroundColour;
+  color: $textColour;
+}
+
+.buttons {
+  @include flexCenter();
+  .btn {
+    background: $btnPrimary;
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+    color: rgb(230, 230, 230);
+    &:hover {
+      background: rgb(50, 126, 212);
+      cursor: pointer;
+      color: white;
+    }
+  }
+}
+
+header {
+  display: flex;
+}
+

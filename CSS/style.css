@@ -1,0 +1,31 @@
+body {
+  background: #e2e2e2;
+  color: #292828;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttons .btn {
+  background: #055b94;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+  color: #e6e6e6;
+}
+
+.buttons .btn:hover {
+  background: #327ed4;
+  cursor: pointer;
+  color: white;
+}
+/*# sourceMappingURL=style.css.map */
