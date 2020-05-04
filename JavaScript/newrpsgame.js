@@ -1,32 +1,32 @@
 // ROCK, PAPER, SCISSORS GAME.
 
 const btns = document.querySelectorAll('.btn');
-const userItem = document.createElement('p');
-const compItem = document.createElement('p');
 const winnerDecl = document.createElement('h2');
 const replayButton = document.createElement('button');
 
-function playGame(determineWinnerCallback, compChoiceCallback) {
 
+// Function to run the game - listen to user click, generate computer choice through the callback and then create the DOM elements announcing the user and computer choice
+function playGame(determineWinnerCallback, compChoiceCallback) {
+  
   for (i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', () => {
       usersChoice = event.target.innerHTML.toLowerCase();
       determineWinnerCallback(compChoiceCallback);
-
+      
+      // Create user choice DOM element
+      const userItem = document.createElement('p');
       userItem.appendChild(document.createTextNode(`The user chose: ${usersChoice}`));
-      // userItem.className += 'selection';
-      // compItem.className += 'selection';
-      compItem.appendChild(document.createTextNode(`The computer chose: ${compChoiceCallback}`))
-
-
-      document.querySelector('.computer').appendChild(compItem);
       document.querySelector('.user').appendChild(userItem);
-     
+      
+      // Create computer choice declaration  
+      const compItem = document.createElement('p');
+      compItem.appendChild(document.createTextNode(`The computer chose: ${compChoiceCallback}`))
+      document.querySelector('.computer').appendChild(compItem);
     });
   }
 }
 
-
+// Callback function to randomly generate computer choiceß
 function getComputerChoice() {
   randomNum = Math.ceil(Math.random() * 3);
   let comp;
@@ -44,7 +44,7 @@ function getComputerChoice() {
   return comp;
 }
 
-
+// CALLBACK FUNCTION TO DETERMINE THE WINNER OF THE GAME AND CREATE THE GAME WINNER DECLARATION DOM ELEMENT. 
 function determineWinner(compChoiceCallback) {
   let gameResult;
   if (usersChoice === compChoiceCallback) {
@@ -57,9 +57,6 @@ function determineWinner(compChoiceCallback) {
   } else {
     gameResult = 'The computer wins!';
   }
-
-
-
 
   winnerDecl.appendChild(document.createTextNode(`${gameResult}`))
   winnerDecl.className += 'res';
