@@ -14,7 +14,10 @@ function playGame(determineWinnerCallback, compChoiceCallback) {
       determineWinnerCallback(compChoiceCallback);
 
       userItem.appendChild(document.createTextNode(`The user chose: ${usersChoice}`));
+      // userItem.className += 'selection';
+      // compItem.className += 'selection';
       compItem.appendChild(document.createTextNode(`The computer chose: ${compChoiceCallback}`))
+
 
       document.querySelector('.computer').appendChild(compItem);
       document.querySelector('.user').appendChild(userItem);
@@ -45,23 +48,25 @@ function getComputerChoice() {
 function determineWinner(compChoiceCallback) {
   let gameResult;
   if (usersChoice === compChoiceCallback) {
-    gameResult = 'The game is a draw';
+    gameResult = 'The game is a draw.';
   } else if (usersChoice === 'rock' && compChoiceCallback === 'scissors') {  gameResult = 'User Wins!';
 }   else if (usersChoice === 'scissors' && compChoiceCallback === 'paper') {
     gameResult = 'User Wins!';
   } else if (usersChoice === 'paper' && compChoiceCallback === 'rock') {
     gameResult = 'User Wins!';
   } else {
-    gameResult = 'The computer wins';
+    gameResult = 'The computer wins!';
   }
 
 
 
 
   winnerDecl.appendChild(document.createTextNode(`${gameResult}`))
+  winnerDecl.className += 'res';
   document.querySelector('.result').appendChild(winnerDecl);
 
   replayButton.appendChild(document.createTextNode(`Play Again`))
+  replayButton.className += "btn";
   document.querySelector('.play-again').appendChild(replayButton);
 }
 
